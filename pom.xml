@@ -1,0 +1,373 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.intheeast</groupId>
+  <artifactId>EmbeddedTomcatApp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+	  <maven.compiler.source>17</maven.compiler.source>
+      <maven.compiler.target>17</maven.compiler.target>
+      <spring.version>6.1.6</spring.version>
+      <aspectj.version>1.9.22.1</aspectj.version>
+      <hibernate.version>5.6.15.Final</hibernate.version>
+      <mysql.version>8.3.0</mysql.version>
+      <h2db.version>2.2.224</h2db.version>
+  </properties>
+  
+  <dependencies>
+	  	  
+	  <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+	      <artifactId>spring-context</artifactId>
+	      <version>${spring.version}</version>
+	  </dependency>
+	  
+	  <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+	  
+	  <!-- For springframe.mail -->
+	  <dependency>
+	 	  <groupId>org.springframework</groupId>
+	 	  <artifactId>spring-context-support</artifactId>
+	 	  <version>${spring.version}</version>
+	  </dependency>
+	  
+	  <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+      <dependency>
+		  <groupId>org.springframework</groupId>
+	      <artifactId>spring-jdbc</artifactId>
+	      <version>${spring.version}</version>
+	  </dependency>
+	  
+	  <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-orm</artifactId>
+          <version>${spring.version}</version> <!-- Spring 최신 버전 확인 -->
+      </dependency>
+	  
+	  <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+	  <dependency>
+	      <groupId>org.springframework</groupId>
+	      <artifactId>spring-aop</artifactId>
+	      <version>${spring.version}</version>
+	  </dependency>
+
+	  
+	  <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+	  <dependency>
+    	  <groupId>org.springframework</groupId>
+    	  <artifactId>spring-test</artifactId>
+    	  <version>${spring.version}</version>
+    	  <scope>test</scope>
+	  </dependency>
+	  
+	  <dependency>
+    	  <groupId>jakarta.persistence</groupId>
+    	  <artifactId>jakarta.persistence-api</artifactId>
+          <version>3.1.0</version> <!-- 최신 버전 확인 -->
+	  </dependency>
+	  
+	  <dependency>
+    	  <groupId>org.hibernate</groupId>
+    	  <artifactId>hibernate-core</artifactId>
+    	  <version>6.5.2.Final</version>
+	  </dependency>
+	  
+	  <dependency>
+    	  <groupId>org.aspectj</groupId>
+    	  <artifactId>aspectjweaver</artifactId>
+    	  <version>${aspectj.version}</version> 
+  	  </dependency>	
+	  
+	  <dependency>
+          <groupId>com.querydsl</groupId>
+          <artifactId>querydsl-jpa</artifactId>
+          <version>5.0.0</version>
+          <classifier>jakarta</classifier>
+      </dependency>
+      
+      <!-- QueryDSL APT(Annotation Processing Tool) -->
+      <dependency>
+          <groupId>com.querydsl</groupId>
+          <artifactId>querydsl-apt</artifactId>
+          <version>5.0.0</version>
+          <scope>provided</scope>
+      </dependency>
+        
+      <dependency>
+		  <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.18.30</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+          <version>2.17.1</version>
+      </dependency>        
+        
+	  <dependency>
+ 		  <groupId>com.sun.mail</groupId>
+ 		  <artifactId>jakarta.mail</artifactId>
+ 		  <version>2.0.1</version>
+	  </dependency>
+	  
+	  <dependency>
+	      <groupId>org.mockito</groupId>
+	      <artifactId>mockito-core</artifactId>
+	      <version>5.2.0</version>
+	      <!-- <scope>test</scope> -->
+	  </dependency>
+	
+	  <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+	  <dependency>
+	      <groupId>jakarta.servlet</groupId>
+	      <artifactId>jakarta.servlet-api</artifactId>
+	      <version>6.0.0</version>
+	      <classifier>sources</classifier>
+	      <scope>provided</scope>
+	  </dependency>
+
+	  <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+	  <dependency>
+	      <groupId>org.apache.tomcat.embed</groupId>
+	      <artifactId>tomcat-embed-core</artifactId>
+	      <version>10.1.25</version>
+	  </dependency>
+
+	  <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+	  <dependency>
+	      <groupId>org.apache.tomcat.embed</groupId>
+	      <artifactId>tomcat-embed-jasper</artifactId>
+	      <version>10.1.25</version>
+	  </dependency>
+	
+	  <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-logging-juli -->
+	  <dependency>
+	      <groupId>org.apache.tomcat.embed</groupId>
+	      <artifactId>tomcat-embed-logging-juli</artifactId>
+	      <version>8.5.2</version>
+	  </dependency>
+
+	  <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+	  <dependency>
+    	  <groupId>org.junit.jupiter</groupId>
+    	  <artifactId>junit-jupiter-api</artifactId>
+    	  <version>5.10.1</version>
+    	  <scope>test</scope>
+	  </dependency>
+
+
+	  <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+	  <dependency>
+          <groupId>com.mysql</groupId>
+          <artifactId>mysql-connector-j</artifactId>
+          <version>${mysql.version}</version>
+      </dependency>
+      
+      <dependency>
+	      <groupId>com.h2database</groupId>
+	      <artifactId>h2</artifactId>
+	      <version>${h2db.version}</version>
+	      <!--<scope>test</scope>-->
+	  </dependency>	 
+	  
+	  <!-- For @PostConstruct annotation!!!-->
+	  <dependency>
+	      <groupId>jakarta.annotation</groupId>
+	      <artifactId>jakarta.annotation-api</artifactId>
+	      <version>3.0.0</version>
+	  </dependency>
+	
+	  <!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
+	  <dependency>
+	      <groupId>jakarta.validation</groupId>
+	      <artifactId>jakarta.validation-api</artifactId>
+	      <version>3.1.0</version>
+	  </dependency>
+	
+	  <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+	  <dependency>
+	      <groupId>org.hibernate.validator</groupId>
+	      <artifactId>hibernate-validator</artifactId>
+	      <version>8.0.1.Final</version>
+	  </dependency>
+	
+	  <!-- https://mvnrepository.com/artifact/opensymphony/sitemesh -->
+	  <dependency>
+	      <groupId>opensymphony</groupId>
+	      <artifactId>sitemesh</artifactId>
+	      <version>2.6.0</version>
+	  </dependency>
+	  
+	  <dependency>
+    	  <groupId>commons-fileupload</groupId>
+          <artifactId>commons-fileupload</artifactId>
+          <version>1.4</version> <!-- 최신 버전 확인 가능 -->
+      </dependency>
+
+	  <dependency>
+    	  <groupId>org.apache.commons</groupId>
+    	  <artifactId>commons-lang3</artifactId>
+    	  <version>3.13.0</version> <!-- 최신 버전 확인 -->
+	  </dependency>
+
+	  <!-- 
+	  <dependency>
+    	  <groupId>org.slf4j</groupId>
+    	  <artifactId>slf4j-api</artifactId>
+    	  <version>2.0.9</version> 
+	  </dependency>
+	  -->
+	
+	  <!-- Log4j2 (실제 로깅을 처리하는 구현체) -->
+      <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-core</artifactId>
+          <version>2.20.0</version> <!-- Log4j 최신 버전 확인 -->
+      </dependency>
+
+      <!-- SLF4J를 Log4j2로 연결하는 어댑터 -->
+      <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-slf4j-impl</artifactId>
+          <version>2.20.0</version> <!-- Log4j 최신 버전 확인 -->
+      </dependency>
+	
+	  <dependency>
+    	  <groupId>ch.qos.logback</groupId>
+    	  <artifactId>logback-classic</artifactId>
+    	  <version>1.4.8</version> <!-- 최신 버전 확인 -->
+	  </dependency>
+	  
+	
+	  <dependency>
+    	  <groupId>org.apache.tomcat</groupId>
+    	  <artifactId>tomcat-dbcp</artifactId>
+    	  <version>9.0.80</version>
+	  </dependency>
+	
+	  <dependency>
+    	  <groupId>jakarta.servlet.jsp.jstl</groupId>
+    	  <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+    	  <version>2.0.0</version>
+	  </dependency>
+	
+	  <dependency>
+    	  <groupId>org.glassfish.web</groupId>
+    	  <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+    	  <version>2.0.0</version>
+	  </dependency>
+
+	  <dependency>
+          <groupId>jakarta.persistence</groupId>
+          <artifactId>jakarta.persistence-api</artifactId>
+          <version>3.1.0</version> <!-- 버전은 최신으로 -->
+      </dependency>
+
+  </dependencies>
+
+  <build>
+	  <plugins>
+		  <!-- Maven Compiler Plugin 설정 -->
+          <plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.8.1</version>
+              <configuration>
+				  <source>17</source>
+                  <target>17</target>
+                  <annotationProcessorPaths>
+					  <!-- Lombok 설정 -->
+                  	  <path>													
+							<groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
+                      </path>
+                    
+                      <!-- QueryDSL APT 설정 -->
+                      <path>						  
+                          <groupId>com.querydsl</groupId>
+                          <artifactId>querydsl-apt</artifactId>
+                          <version>5.0.0</version>
+                          <classifier>jakarta</classifier>
+                      </path>
+
+                      <!-- Jakarta Annotation API -->
+                      <path>
+                          <groupId>jakarta.annotation</groupId>
+                          <artifactId>jakarta.annotation-api</artifactId>
+                          <version>3.0.0</version>
+                      </path>
+                    
+                      <!-- Jakarta Persistence API -->
+                      <path>
+						  <groupId>jakarta.persistence</groupId>
+                          <artifactId>jakarta.persistence-api</artifactId>
+                          <version>3.1.0</version>
+                      </path>
+                  </annotationProcessorPaths>
+
+                  <!-- QueryDSL 파일이 생성될 디렉토리 -->
+                  <generatedSourcesDirectory>${project.build.directory}/generated-sources/java</generatedSourcesDirectory>
+
+              </configuration>
+          </plugin>
+
+          <!-- Maven resources plugin for handling generated-sources directory -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+				<execution>
+					<id>copy-resources</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/generated-sources/java</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>src/main/resources</directory>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+            </executions>
+          </plugin>
+        
+          <plugin>
+			  <groupId>org.codehaus.mojo</groupId>
+              <artifactId>build-helper-maven-plugin</artifactId>
+              <version>3.2.0</version>
+              <executions>
+				  <execution>
+					  <id>add-source</id>
+                      <phase>generate-sources</phase>
+                      <goals>
+						  <goal>add-source</goal>
+                      </goals>
+                      <configuration>
+						  <sources>
+							  <source>${project.build.directory}/generated-sources/java</source>
+                          </sources>
+                      </configuration>
+                  </execution>
+              </executions>
+          </plugin>
+
+      </plugins>
+    
+      <sourceDirectory>src/main/java</sourceDirectory>
+      <testSourceDirectory>src/test/java</testSourceDirectory>
+  </build>
+
+
+</project>
