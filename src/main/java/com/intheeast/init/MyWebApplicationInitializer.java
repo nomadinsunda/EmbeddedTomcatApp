@@ -70,19 +70,33 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     // DispatcherServlet 설정 (Web 전용 컨텍스트) + parent-child 구조 설정
     private void addDispatcherServlet(ServletContext servletContext, AnnotationConfigWebApplicationContext rootContext) {
         // Web 전용 애플리케이션 컨텍스트 (컨트롤러, 뷰 리졸버 등)
-        AnnotationConfigWebApplicationContext servletContextConfig = 
+        AnnotationConfigWebApplicationContext servletContextConfigContext = 
         		new AnnotationConfigWebApplicationContext();
-        servletContextConfig.register(WebConfig.class);  // Web 관련 빈 설정
+        servletContextConfigContext.register(WebConfig.class);  // Web 관련 빈 설정
 
         // 부모 컨텍스트 설정
-        servletContextConfig.setParent(rootContext);  // parent-child 계층 구조 설정
+        servletContextConfigContext.setParent(rootContext);  // parent-child 계층 구조 설정
 
         DispatcherServlet dispatcherServlet = 
-        		new DispatcherServlet(servletContextConfig);
+        		new DispatcherServlet();        
+        dispatcherServlet.setApplicationContext(servletContextConfigContext);
+        
         ServletRegistration.Dynamic registration = 
         		servletContext.addServlet("app", dispatcherServlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
+        /*
+         <servlet>
+    		<servlet-name>app</servlet-name>
+    		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    		<load-on-startup>1</load-on-startup>
+		</servlet>
+
+		<servlet-mapping>
+    		<servlet-name>app</servlet-name>
+    		<url-pattern>/</url-pattern>
+		</servlet-mapping>
+        */
 
         // 파일 업로드 설정
         MultipartConfigElement multipartConfigElement = new MultipartConfigElement(

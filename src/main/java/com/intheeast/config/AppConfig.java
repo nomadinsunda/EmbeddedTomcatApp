@@ -102,7 +102,7 @@ public class AppConfig{
     public JavaMailSenderImpl javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         
-     // 구글 SMTP 서버 설정
+        // 구글 SMTP 서버 설정
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);  // TLS 포트 (또는 465는 SSL)
 
