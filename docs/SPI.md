@@ -56,7 +56,7 @@ public class EnglishGreetingService implements GreetingService {
 com.example.impl.EnglishGreetingService
 ```
 
-> 이 파일은 텍스트 파일이며, 구현체의 \*\*정확한 FQCN(fully-qualified class name)\*\*을 명시해야 합니다.
+> 이 파일은 텍스트 파일이며, 구현체의 <strong>정확한 FQCN(fully-qualified class name)</strong>을 명시해야 합니다.
 
 ### 4. 서비스 로딩
 
