@@ -58,6 +58,7 @@ ServletContainerInitializer 구현체 인스턴스화
    ↓
 onStartup(Set<Class<?>>, ServletContext) 호출
 ```
+<img src="./images/initial.png" width=90% /><br>
 
 ---
 
