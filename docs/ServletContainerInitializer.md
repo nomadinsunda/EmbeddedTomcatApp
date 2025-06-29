@@ -4,7 +4,7 @@
 서블릿 컨테이너(Tomcat, Jetty 등)가 애플리케이션을 시작할 때,
 특정 클래스를 **자동으로 감지해서 초기화 작업을 수행할 수 있도록 하는 표준 메커니즘**입니다.
 
-즉, `web.xml` 없이도 초기화 코드를 실행할 수 있게 해주는 \*\*Service Provider Interface(SPI)\*\*입니다.
+즉, `web.xml` 없이도 초기화 코드를 실행할 수 있게 해주는 <strong>Service Provider Interface(SPI)</strong>입니다.
 
 ---
 
