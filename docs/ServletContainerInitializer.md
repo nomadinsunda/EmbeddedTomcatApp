@@ -25,9 +25,10 @@ public interface ServletContainerInitializer {
 
 ## 🔍 자동 등록 원리 — JAR SPI 메커니즘
 
-이 SPI가 자동으로 동작하는 핵심은 `JAR 파일 내 메타정보`에 있습니다.
+이 SPI가 자동으로 동작하는 핵심은 `JAR 파일 내 META-INFO`에 있습니다.
 
 ### 📄 예: spring-web.jar 내부
+<img src="./images/services.png" width=90% /><br>
 
 ```
 META-INF/services/jakarta.servlet.ServletContainerInitializer
