@@ -5,8 +5,8 @@
 | **속한 영역**    | Tomcat 내부 구성 컴포넌트 (`org.apache.catalina.Context`) | 서블릿 표준 API (`jakarta.servlet.ServletContext`) |
 | **의미**       | 하나의 웹 애플리케이션(컨텍스트 루트)에 대한 **Tomcat 내부 표현 객체**     | 웹 애플리케이션 전체에 대한 정보와 공유 리소스를 제공하는 **API 객체**   |
 | **생성 주체**    | Tomcat이 구동되면서 내부적으로 생성 (`StandardContext`)        | Tomcat의 `Context`가 `ServletContext` 구현체를 생성   |
-| **역할**       | 웹앱의 구조/생명주기/구성관리 (서블릿, 필터, 리스너, 보안 설정 등)          | 서블릿 간 공유 데이터, 초기 파라미터, 리소스 경로 제공              |
-| **수명**       | Tomcat이 웹앱을 로딩할 때 생성, 언로드 시 종료                    | 해당 웹앱 로딩과 함께 생성되고 종료 시 소멸                     |
+| **역할**       | Web Application의 구조/생명주기/구성관리 (서블릿, 필터, 리스너, 보안 설정 등)          | 서블릿 간 공유 데이터, 초기 파라미터, 리소스 경로 제공              |
+| **수명**       | Tomcat이 Web Application을 로딩할 때 생성, 언로드 시 종료                    | 해당 Web Application 로딩과 함께 생성되고 종료 시 소멸                     |
 | **수동 생성 여부** | 코드에서 `Tomcat.addContext()`로 생성 가능                 | 개발자가 직접 생성할 수 없음 (컨테이너가 생성)                   |
 
 ---
