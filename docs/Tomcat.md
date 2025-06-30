@@ -1,4 +1,4 @@
-# 🌐 Tomcat 내장 실행을 위한 최소 설정 도우미: `org.apache.catalina.startup.Tomcat` 완전 정복
+# 🌐 Tomcat 내장 실행을 위한 최소 설정 도우미: `org.apache.catalina.startup.Tomcat` 
 
 ---
 
